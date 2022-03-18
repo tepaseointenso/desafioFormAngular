@@ -1,0 +1,136 @@
+<div id="containerEquipo" class="container-fluid contain">
+    <div class="row fondoTabla justify-content-center align-items-center">
+            <div class="bannerLateral col-lg-6 px-0 py-5">
+                    <p class="titulo">Registro de Usuario</p>
+            </div>
+            <div class="col-lg-6 formulario py-3 px-5">
+                <form [formGroup]="usuarioForm" (ngSubmit)="guardar()">
+                    <div class="mb-3">
+                    <label for="usuario" class="form-label">Nombre de usuario</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="usuario"
+                        formControlName="usuario"
+                        aria-describedby="nombreUsuario"
+                    />
+                    <small
+                        class="text-danger"
+                        *ngIf="
+                        usuarioForm.get('usuario')!.invalid &&
+                        usuarioForm.get('usuario')!.touched
+                        "
+                        >Ingrese un nombre de usuario valido</small
+                    >
+                    </div>
+                    <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="nombre"
+                        formControlName="nombre"
+                        aria-describedby="nombrePersona"
+                    />
+                    <small
+                    class="text-danger"
+                    *ngIf="
+                    usuarioForm.get('nombre')!.invalid &&
+                    usuarioForm.get('nombre')!.touched"
+                    >Ingrese un nombre valido</small>
+                    </div>
+                    <div class="mb-3">
+                    <label for="apellidos" class="form-label">Apellidos</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="apellidos"
+                        formControlName="apellidos"
+                        aria-describedby="apellidosHelp"
+                    />
+                    </div>
+                    <small
+                    class="text-danger"
+                    *ngIf="
+                    usuarioForm.get('apellidos')!.invalid &&
+                    usuarioForm.get('apellidos')!.touched"
+                    >Ingrese apellidos validos</small>
+                    <div class="mb-3">
+                    <label for="pais" class="form-label">Pais</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="pais"
+                        formControlName="pais"
+                        aria-describedby="paisUsuario"
+                    />
+                    </div>
+                    <small
+                    class="text-danger"
+                    *ngIf="
+                    usuarioForm.get('pais')!.invalid &&
+                    usuarioForm.get('pais')!.touched"
+                    >Ingrese un pais valido</small>
+                    <div class="mb-3">
+                    <label for="mail" class="form-label">Mail</label>
+                    <input
+                        type="mail"
+                        class="form-control"
+                        id="mail"
+                        formControlName="mail"
+                        aria-describedby="mailHelp"
+                    />
+                    </div>
+                    <small
+                    class="text-danger"
+                    *ngIf="
+                    usuarioForm.get('mail')!.invalid &&
+                    usuarioForm.get('mail')!.touched"
+                    >Ingrese un mail valido</small>
+
+                    <div class="mb-3">
+                    <label for="fono" class="form-label">Telefono (Codigo Pais + Número)</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="fono"
+                        formControlName="fono"
+                        aria-describedby="numFono"
+                    />
+                    </div>
+                    <small
+                    class="text-danger"
+                    *ngIf="
+                    usuarioForm.get('fono')!.invalid &&
+                    usuarioForm.get('fono')!.touched"
+                    >Ingrese un telefono valido con codigo país</small>
+                    <div class="mb-3 form-check">
+                        <input
+                        type="checkbox"
+                        formControlName="terminos"
+                        id="terminos"
+                        class="form-check-input"
+                      />
+                        <label class="form-check-label" for="terminos">
+                            Acepto los terminos y condiciones
+                        </label>
+                      </div>
+                      <small
+                      class="text-danger"
+                      *ngIf="
+                      usuarioForm.get('terminos')!.invalid"
+                      >Acepte los terminos para continuar</small>
+                    <div class="text-center mt-4 mb-3">
+                        <button
+                        type="submit"
+                        class="btn btn-primary"
+                        [disabled]="!usuarioForm.valid"
+                        >
+                        Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
+  
